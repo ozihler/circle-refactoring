@@ -35,7 +35,7 @@ public class Circle {
     }
 
     public String format() {
-        return center.asString() + ", " + radius;
+        return center.format() + ", " + radius;
     }
 
 }

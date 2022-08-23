@@ -1,7 +1,7 @@
 package refactoring;
 
 public record Point(int x, int y) {
-    String asString() {
+    String format() {
         return "(" + x() + ", " + y() + ")";
     }
 }
