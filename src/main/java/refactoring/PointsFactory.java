@@ -1,6 +1,4 @@
-package circle;
-
-import refactoring.Point;
+package refactoring;
 
 import java.util.ArrayList;
 import java.util.List;
