@@ -23,7 +23,6 @@ public class RoundShape {
     }
 
 
-
     public void mv(int x, int y) {
         this.x = x;
         this.y = y;
@@ -31,6 +30,10 @@ public class RoundShape {
 
     public void rs(int r) {
         this.r = r;
+    }
+
+    public String ft() {
+        return "(" + x + ", " + y + "), " + r;
     }
 
 }

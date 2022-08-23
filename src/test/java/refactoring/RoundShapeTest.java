@@ -14,7 +14,7 @@ class RoundShapeTest {
     }
 
     @Test
-    void should_move_RoundShape_around() {
+    void should_move() {
         RoundShape RoundShape = new RoundShape(0, 0, 20);
         int[] xCoordinates = new int[]{2, 3, 4, -12, -20};
         int[] yCoordinates = new int[]{8, 20, 15, -4, -20};
@@ -26,7 +26,7 @@ class RoundShapeTest {
     }
 
     @Test
-    void should_resize_RoundShape() {
+    void should_resize() {
         RoundShape RoundShape = new RoundShape(0, 0, 20);
         int[] xCoordinates = new int[]{2, 3, 4, -12, -20};
         int[] yCoordinates = new int[]{8, 20, 15, -4, -20};
@@ -37,5 +37,11 @@ class RoundShapeTest {
 
         RoundShape.rs(1);
         assertEquals(0, RoundShape.cntPts(xCoordinates, yCoordinates));
+    }
+
+    @Test
+    void should_format() {
+        RoundShape roundShape = new RoundShape(1, 4, 7);
+        assertEquals("(1, 4), 7", roundShape.ft());
     }
 }
