@@ -30,8 +30,8 @@ public class Circle {
         this.center = new Point(x, y);
     }
 
-    public void resize(int r) {
-        this.radius = r;
+    public void resize(int radius) {
+        this.radius = radius;
     }
 
     public String format() {
