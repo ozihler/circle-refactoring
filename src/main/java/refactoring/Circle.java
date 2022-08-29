@@ -2,13 +2,11 @@ package refactoring;
 
 public class Circle {
 
-    private int centerX;
-    private int centerY;
+    private Point center;
     private int radius;
 
-    public Circle(int centerX, int centerY, int radius) {
-        this.centerX = centerX;
-        this.centerY = centerY;
+    public Circle(Point center, int radius) {
+        this.center = center;
         this.radius = radius;
     }
 
@@ -25,8 +23,8 @@ public class Circle {
     }
 
     private boolean contains(int xCord, int yCord) {
-        var deltaX = xCord - this.centerX;
-        var deltaY = yCord - this.centerY;
+        var deltaX = xCord - this.center.x();
+        var deltaY = yCord - this.center.y();
         return square(deltaX) + square(deltaY) <= square(radius);
     }
 
@@ -36,8 +34,7 @@ public class Circle {
 
 
     public void moveTo(int x, int y) {
-        this.centerX = x;
-        this.centerY = y;
+        this.center = new Point(x, y);
     }
 
     public void resize(int r) {
@@ -45,7 +42,7 @@ public class Circle {
     }
 
     public String format() {
-        return "(" + centerX + ", " + centerY + "), " + radius;
+        return "(" + center.x() + ", " + center.y() + "), " + radius;
     }
 
 }
