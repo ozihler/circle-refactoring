@@ -42,7 +42,7 @@ public class Circle {
     }
 
     public String format() {
-        return "(" + center.x() + ", " + center.y() + "), " + radius;
+        return center.format() + ", " + radius;
     }
 
 }
