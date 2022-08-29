@@ -15,7 +15,9 @@ public class Circle {
     public int countContainingPoints(int[] xCords, int[] yCords) {
         int numberOfPoints = 0;
         for (int i = 0; i < xCords.length; ++i) {
-            if ((xCords[i] - this.centerX) * (xCords[i] - this.centerX) + (yCords[i] - this.centerY) * (yCords[i] - this.centerY) <= radius * radius) {
+            var deltaX = xCords[i] - this.centerX;
+            var deltaY = yCords[i] - this.centerY;
+            if (deltaX * deltaX + deltaY * deltaY <= radius * radius) {
                 numberOfPoints++;
             }
         }
