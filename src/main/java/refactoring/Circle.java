@@ -17,11 +17,15 @@ public class Circle {
         for (int i = 0; i < xCords.length; ++i) {
             var deltaX = xCords[i] - this.centerX;
             var deltaY = yCords[i] - this.centerY;
-            if (deltaX * deltaX + deltaY * deltaY <= radius * radius) {
+            if (square(deltaX) + square(deltaY) <= square(radius)) {
                 numberOfPointsContainedInCircle++;
             }
         }
         return numberOfPointsContainedInCircle;
+    }
+
+    private int square(int number) {
+        return number * number;
     }
 
 
