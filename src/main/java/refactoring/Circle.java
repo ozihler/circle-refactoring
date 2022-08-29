@@ -15,13 +15,19 @@ public class Circle {
     public int countContainingPoints(int[] xCords, int[] yCords) {
         int numberOfPointsContainedInCircle = 0;
         for (int i = 0; i < xCords.length; ++i) {
-            var deltaX = xCords[i] - this.centerX;
-            var deltaY = yCords[i] - this.centerY;
-            if (square(deltaX) + square(deltaY) <= square(radius)) {
+            var xCord = xCords[i];
+            var yCord = yCords[i];
+            if (contains(xCord, yCord)) {
                 numberOfPointsContainedInCircle++;
             }
         }
         return numberOfPointsContainedInCircle;
+    }
+
+    private boolean contains(int xCord, int yCord) {
+        var deltaX = xCord - this.centerX;
+        var deltaY = yCord - this.centerY;
+        return square(deltaX) + square(deltaY) <= square(radius);
     }
 
     private int square(int number) {
