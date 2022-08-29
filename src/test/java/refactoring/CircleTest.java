@@ -10,7 +10,8 @@ class CircleTest {
         Circle circle = new Circle(new Point(0, 0), 20);
         int[] xCoordinates = new int[]{2, 3, 4, -12, -20};
         int[] yCoordinates = new int[]{8, 20, 15, -4, -20};
-        assertEquals(3, circle.countContainingPoints(xCoordinates, yCoordinates));
+        var points = PointsFactory.createPointsFrom(xCoordinates, yCoordinates);
+        assertEquals(3, circle.countContainingPoints(points));
     }
 
     @Test
@@ -18,11 +19,13 @@ class CircleTest {
         Circle circle = new Circle(new Point(0, 0), 20);
         int[] xCoordinates = new int[]{2, 3, 4, -12, -20};
         int[] yCoordinates = new int[]{8, 20, 15, -4, -20};
-        assertEquals(3, circle.countContainingPoints(xCoordinates, yCoordinates));
+        var points1 = PointsFactory.createPointsFrom(xCoordinates, yCoordinates);
+        assertEquals(3, circle.countContainingPoints(points1));
 
         circle.moveTo(-30, -30);
 
-        assertEquals(1, circle.countContainingPoints(xCoordinates, yCoordinates));
+        var points = PointsFactory.createPointsFrom(xCoordinates, yCoordinates);
+        assertEquals(1, circle.countContainingPoints(points));
     }
 
     @Test
@@ -30,13 +33,16 @@ class CircleTest {
         Circle circle = new Circle(new Point(0, 0), 20);
         int[] xCoordinates = new int[]{2, 3, 4, -12, -20};
         int[] yCoordinates = new int[]{8, 20, 15, -4, -20};
-        assertEquals(3, circle.countContainingPoints(xCoordinates, yCoordinates));
+        var points2 = PointsFactory.createPointsFrom(xCoordinates, yCoordinates);
+        assertEquals(3, circle.countContainingPoints(points2));
 
         circle.resize(40);
-        assertEquals(5, circle.countContainingPoints(xCoordinates, yCoordinates));
+        var points1 = PointsFactory.createPointsFrom(xCoordinates, yCoordinates);
+        assertEquals(5, circle.countContainingPoints(points1));
 
         circle.resize(1);
-        assertEquals(0, circle.countContainingPoints(xCoordinates, yCoordinates));
+        var points = PointsFactory.createPointsFrom(xCoordinates, yCoordinates);
+        assertEquals(0, circle.countContainingPoints(points));
     }
 
     @Test

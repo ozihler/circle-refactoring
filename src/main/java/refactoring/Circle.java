@@ -1,6 +1,6 @@
 package refactoring;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Circle {
 
@@ -12,16 +12,8 @@ public class Circle {
         this.radius = radius;
     }
 
-    public int countContainingPoints(int[] xCords, int[] yCords) {
-        ArrayList<Point> points = PointsFactory.createPointsFrom(xCords, yCords);
-
-        int numberOfPointsContainedInCircle = 0;
-        for (Point point : points) {
-            if (contains(point)) {
-                numberOfPointsContainedInCircle++;
-            }
-        }
-        return numberOfPointsContainedInCircle;
+    public int countContainingPoints(List<Point> points) {
+        return (int) points.stream().filter(this::contains).count();
     }
 
     private boolean contains(Point point) {
