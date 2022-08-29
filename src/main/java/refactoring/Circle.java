@@ -1,5 +1,7 @@
 package refactoring;
 
+import java.util.ArrayList;
+
 public class Circle {
 
     private Point center;
@@ -11,20 +13,24 @@ public class Circle {
     }
 
     public int countContainingPoints(int[] xCords, int[] yCords) {
-        int numberOfPointsContainedInCircle = 0;
+        var points = new ArrayList<Point>();
         for (int i = 0; i < xCords.length; ++i) {
-            var xCord = xCords[i];
-            var yCord = yCords[i];
-            if (contains(xCord, yCord)) {
+            var point = new Point(xCords[i], yCords[i]);
+            points.add(point);
+        }
+
+        int numberOfPointsContainedInCircle = 0;
+        for (Point point : points) {
+            if (contains(point)) {
                 numberOfPointsContainedInCircle++;
             }
         }
         return numberOfPointsContainedInCircle;
     }
 
-    private boolean contains(int xCord, int yCord) {
-        var deltaX = xCord - this.center.x();
-        var deltaY = yCord - this.center.y();
+    private boolean contains(Point point) {
+        var deltaX = point.x() - this.center.x();
+        var deltaY = point.y() - this.center.y();
         return square(deltaX) + square(deltaY) <= square(radius);
     }
 
