@@ -13,11 +13,7 @@ public class Circle {
     }
 
     public int countContainingPoints(int[] xCords, int[] yCords) {
-        var points = new ArrayList<Point>();
-        for (int i = 0; i < xCords.length; ++i) {
-            var point = new Point(xCords[i], yCords[i]);
-            points.add(point);
-        }
+        ArrayList<Point> points = PointsFactory.createPointsFrom(xCords, yCords);
 
         int numberOfPointsContainedInCircle = 0;
         for (Point point : points) {
