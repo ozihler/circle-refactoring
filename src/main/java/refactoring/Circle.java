@@ -13,13 +13,13 @@ public class Circle {
     }
 
     public int countContainingPoints(int[] xCords, int[] yCords) {
-        int numberOfPoints = 0;
+        int numberOfPointsContainedInCircle = 0;
         for (int i = 0; i < xCords.length; ++i) {
             if ((xCords[i] - this.centerX) * (xCords[i] - this.centerX) + (yCords[i] - this.centerY) * (yCords[i] - this.centerY) <= radius * radius) {
-                numberOfPoints++;
+                numberOfPointsContainedInCircle++;
             }
         }
-        return numberOfPoints;
+        return numberOfPointsContainedInCircle;
     }
 
 
