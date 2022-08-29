@@ -13,15 +13,15 @@ public class Circle {
     }
 
     public int countContainingPoints(int[] xCords, int[] yCords) {
-        int numberOfPoints = 0;
+        int numberOfPointsContainedInCircle = 0;
         for (int i = 0; i < xCords.length; ++i) {
             var deltaX = xCords[i] - this.centerX;
             var deltaY = yCords[i] - this.centerY;
             if (deltaX * deltaX + deltaY * deltaY <= radius * radius) {
-                numberOfPoints++;
+                numberOfPointsContainedInCircle++;
             }
         }
-        return numberOfPoints;
+        return numberOfPointsContainedInCircle;
     }
 
 
